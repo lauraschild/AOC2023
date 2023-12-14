@@ -99,6 +99,7 @@ order_hands_by_strength <- function(input,
 test_result <- order_hands_by_strength(input, task2 = FALSE)
 sum(test_result$result)
 
+#task 2
 test_result <- order_hands_by_strength(input, task2 = TRUE)
 sum(test_result$result)
 

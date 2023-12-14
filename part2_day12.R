@@ -74,3 +74,6 @@ for(i in 1:length(records)){
   forget(mem_find_solutions)
 }
 counts <- sum(counts)
+
+#solution
+sprintf("%.0f",counts)
