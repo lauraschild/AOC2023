@@ -4,7 +4,7 @@ library(tidyverse)
 #13 green
 #14 blue
 
-input <- readClipboard()
+input <- readLines("day2.txt")
 
 #make individual game dfs
 make_df <- function(game){
@@ -42,6 +42,7 @@ make_df <- function(game){
 good_games <- sapply(1:length(input),
                      make_df)
 
+#solution part 1
 sum(good_games, na.rm = TRUE)
 
 #### PART 2####
@@ -79,4 +80,5 @@ agathe_power <- function(game){
 
 powers <- sapply(1:length(input),
                  agathe_power)
+#solution part 2
 sum(powers)

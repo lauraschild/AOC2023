@@ -93,11 +93,12 @@ order_hands_by_strength <- function(input,
     rowid_to_column("rank") %>% 
     mutate(result = rank*bid) %>% 
     return()
-    # pull(result) %>% 
-    # sum() %>% 
-    # return()
+
 }
-#order_hands_by_strength(input,FALSE)
-test_result <- order_hands_by_strength(input, TRUE)
+#task 1 
+test_result <- order_hands_by_strength(input, task2 = FALSE)
+sum(test_result$result)
+
+test_result <- order_hands_by_strength(input, task2 = TRUE)
 sum(test_result$result)
 

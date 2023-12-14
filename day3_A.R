@@ -62,7 +62,6 @@ positions <- expand.grid(col = 1:ncol(manual),
                          row = 1:nrow(manual))
 #check_function for numbers
 get_engine_parts <- function(position){
-  print(position)
   row <- positions$row[position]
   col <- positions$col[position]
   value <- manual[row,col]

@@ -26,7 +26,7 @@ distance_vector <- function(i){
   return(higher)
 }
 
-
+#part 1 solution
 prod(sapply(1:length(time),
             distance_vector))
 
@@ -45,4 +45,5 @@ charge_diff <- dist_max - new_distance
 same_dist_charge1 <- new_time/2 + sqrt((-new_time/2)^2-new_distance)
 same_dist_charge2 <- new_time/2 - sqrt((-new_time/2)^2-new_distance)
 
+#solution part2
 same_dist_charge1 - same_dist_charge2

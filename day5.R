@@ -81,7 +81,7 @@
     return(location)
   }
   
-  
+  #solution part 1
   min(sapply(as.numeric(seeds),from_seed_to_loc))
   
   seeds2 <- lapply(seq(1,length(seeds),2),
@@ -187,6 +187,7 @@
   }
   
   locations <- from_seed_to_loc(seeds2)
+  #solution part2
   min(locations)
 
   

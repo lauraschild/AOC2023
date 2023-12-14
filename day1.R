@@ -1,8 +1,7 @@
 #day 1
+rm(list = ls())
 library(readr)
-input <- readClipboard()
-gsub("[A-z]","",input[2])
-
+input <- readLines("day1.txt")
 
 just_numbers <-
   sapply(input,
@@ -17,10 +16,13 @@ two_digits <- function(v){
   return(as.numeric(paste0(first,last)))
 }
 
-sum(sapply(just_numbers,
-       two_digits))
+#task 1 solution
+lapply(just_numbers,
+       two_digits) %>% 
+  unlist() %>% 
+  sum()
 
-
+#task 2 solution
 dictionary <- data.frame(string = c("eight",
                                     "one",
                                     "two",
@@ -61,13 +63,9 @@ replace_strings <- function(input_string){
   input_string <- paste0(new_numbers$number[order(new_numbers$position)],collapse ="")
   return(input_string)
 }
-test <- readClipboard()
 #replace string numbers 
 add_digits <- sapply(input,
                      replace_strings)
-
-# just_numbers <- sapply(add_digits,
-#                        function(x)gsub("[A-z]","",x))
 
 sum(sapply(add_digits,
            two_digits))

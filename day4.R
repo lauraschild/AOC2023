@@ -71,7 +71,7 @@ sapply(input,
 
 
 #task 2
-sapply(input,
+shh <- sapply(input,
        edit_copies)
 
 sum(copies$copy)
