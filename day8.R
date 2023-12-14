@@ -124,13 +124,6 @@ steps <- Z_frame %>%
   filter(steps == min(steps)) %>% 
   pull()
 
-coefficient <- 1
-divisible <- FALSE
-while(!divisible){
-  total_steps <- coefficient * max(steps)
-  divisible <- sum(total_steps %% steps) == 0
-  coefficient <- coefficient +1
-}
-
-total_steps
-coefficient
+#least common multiple
+#print without scientific notation
+sprintf("%.0f",numbers::mLCM(steps))
