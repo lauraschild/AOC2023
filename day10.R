@@ -92,7 +92,8 @@ for(start_connection in c("N","S","E","W")){
     positions <- rbind(positions, new_tile)
     #check if the next tile is the start
     if(sum(new_tile == starting_point) == 2){
-      print(steps)
+      #print(steps)
+      solution <- steps/2
       true_positions <- positions
       break
     }
@@ -109,22 +110,8 @@ for(start_connection in c("N","S","E","W")){
   }
 }
 
-
-
-#plot(raster(t(as.numeric(test_pipes))))
-#go through  all NA cells and check if path is in all ways
-
-ggplot(true_positions,
-       aes(col,
-           row))+
-  geom_line()
-
-
-polygon <-true_positions %>% 
-  st_as_sf(coords = c("col","row")) %>% 
-  summarize(geometry = st_combine(geometry)) %>% 
-  st_cast("POLYGON") 
-
+#solution part 1
+solution
 
 
 new_positions <- true_positions %>% 
@@ -227,6 +214,9 @@ while(still_converting){
 
 last_zeros <- which(added_outside == 0, arr.ind = TRUE)
 
+#so pretty
+image(added_outside)
+#solution part 2
 as.data.frame(last_zeros) %>% 
   mutate(row_mod = row %% 2,
          col_mod = col %% 2) %>% 

@@ -16,7 +16,8 @@ parse_patterns <- function(i){
 patterns <- lapply(1:(length(splits)-1),
                    parse_patterns)
 
-find_axes <- function(pattern){
+find_axes <- function(pattern,
+                      check_number){
   vertical_axes <- 1:(ncol(pattern)-1)
   horizontal_axes <- 1:(nrow(pattern)-1)
   
@@ -33,7 +34,7 @@ find_axes <- function(pattern){
     #mirror the left one
     mirror_check <- left[,ncol(left):1] != right
     
-    if(sum(mirror_check) == 1){
+    if(sum(mirror_check) == check_number){
       vertical <- axis
       break
     }
@@ -53,7 +54,7 @@ find_axes <- function(pattern){
       mirror_check <- upper[nrow(upper):1,] != lower
     }
     
-    if(sum(mirror_check) == 1){
+    if(sum(mirror_check) == check_number){
       horizontal <- axis
       break
     }
@@ -65,5 +66,16 @@ find_axes <- function(pattern){
   return(result)
 }
 
-all <- sapply(patterns,
-              find_axes)
+
+
+#solution part 1
+sapply(patterns,
+       find_axes,
+       check_number = 0) %>% 
+  sum()
+
+#solution part 2
+sapply(patterns,
+       find_axes,
+       check_number = 1) %>% 
+  sum()

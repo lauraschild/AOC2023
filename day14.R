@@ -96,7 +96,6 @@ for(i in 2:1000000001){
   }
 }
 
-info
 
 period <- diff(info)
 
@@ -132,6 +131,7 @@ get_loadings <- function(input_col) {
   loadings <- (nrow(platform)+1) - round
   return(sum(loadings))
 }
+#solution part 2
 sapply(1:ncol(platform),
        get_loadings) %>% 
   sum()

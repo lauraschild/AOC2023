@@ -47,12 +47,13 @@ galaxies <- which(expanded_universe == "#",
 distances <- dist(galaxies, method = "manhattan")
 
 distances <- as.matrix(distances)
+#solution part 1
 sum(distances[upper.tri(distances)])
 
 #### PART 2####
+
 galaxies <- which(universe == "#",
                   arr.ind = TRUE)
-nrow(galaxies)
 
 galaxy_pairs <- as.data.frame(t(combn(1:nrow(galaxies),2)))
 galaxy_pairs$distance <- NA
@@ -75,5 +76,7 @@ for(pair in 1:nrow(galaxy_pairs)){
   
   galaxy_pairs$distance[pair] <- distance
 }
-head(galaxy_pairs)
+
+
+#solution part 2
 sum(galaxy_pairs$distance)
