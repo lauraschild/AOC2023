@@ -1,9 +1,11 @@
+library(tidyverse)
+
 lines <- readLines("https://adventofcode.com/2023/stats")
 
 lines <- lines[98:121]
 
 numbers <- lapply(lines,
-                  function(x)parse_number(unlist(strsplit(x,'"'))[c(3,5,7)]))
+                  function(x)readr::parse_number(unlist(strsplit(x,'"'))[c(3,5,7)]))
 
 stats <- do.call(rbind,numbers) %>% 
   as.data.frame()
